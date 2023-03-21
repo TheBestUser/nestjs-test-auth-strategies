@@ -1,20 +1,18 @@
 import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
-import { AppService } from './app.service';
 import { JwtRefreshAuthGuard, PublicRoute } from '@app/common/bearer';
 
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
-
+@Controller('auth')
+export class AuthController {
   @Get()
-  getHello(@Req() { user }: any): string {
+  // uses APP_GUARD
+  getUserWithAccessToken(@Req() { user }: any): string {
     return user;
   }
 
   @PublicRoute()
   @Post('refresh')
   @UseGuards(JwtRefreshAuthGuard)
-  refreshToken(@Req() { user }: any) {
+  getUserWithRefreshToken(@Req() { user }: any) {
     return user;
   }
 }

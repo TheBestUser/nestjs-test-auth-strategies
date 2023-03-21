@@ -1,5 +1,10 @@
 Commands
 
+Start App:
+```shell
+yarn start:dev
+```
+
 Test JWT Guard:
 ```shell
 curl --location 'localhost:3005' \

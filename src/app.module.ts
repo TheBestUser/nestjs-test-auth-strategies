@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BearerModule } from './bearer';
+import { BearerModule } from '@app/common/bearer';
 
 @Module({
   imports: [BearerModule.forRoot()],
